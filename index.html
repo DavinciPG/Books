@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <title>Books</title>
+</head>
+<body>
+<div class="container">
+  <!-- Page Content goes here -->
+  <div class="row">
+    <div class="col s12 m6">
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">Books</span>
+          <div class="row">
+            <form class="col s12" id="book-form">
+              <div class="row">
+                <div class="input-field col s6">
+                  <input type="text" id="title">
+                  <label for="title">Title</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s6">
+                  <input type="text" id="author">
+                  <label for="author">Author</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s6">
+                  <input type="text" id="isbn">
+                  <label for="isbn">ISBN</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col s6">
+                  <input type="submit" class="btn">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="card-action">
+          <span class="card-title" id="book-title">My Books</span>
+          <table class="collection" id="tabel">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>ISBN</th>
+              </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+          </table>
+          <a href="#" class="btn" id="del-books">Clear All Books</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
