@@ -11,6 +11,14 @@ form.addEventListener('submit', addBook)
 body.addEventListener('click', removeBook)
 document.addEventListener('DOMContentLoaded', getBookFromLocalStorage)
 
+class Book {
+    constructor(nimi, isbn, author) {
+        this.name = nimi;
+        this.isbn = isbn;
+        this.author = author;
+    }
+}
+
 function addBook(event) {
     const Row = `<tr>
                    <td id="tiitel">${title.value}</td>
