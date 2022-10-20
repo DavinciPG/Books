@@ -7,8 +7,11 @@ class LS {
     removeBook(ibook) {
         let books = this.getData('books')
 
+        console.log('Book required for removal: ', ibook)
         books.forEach((book, bookIndex) => {
+            console.log('Checking book for removal: ', book)
             if(book.name == ibook.name && book.isbn == ibook.isbn && book.author == ibook.author) {
+                console.log('Found book for removal')
                 books.splice(bookIndex, 1)
             }
         })

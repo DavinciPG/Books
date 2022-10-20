@@ -26,9 +26,9 @@ function addBook(event) {
 
 function removeBook(event) {
     if(event.target.textContent == 'X') {
-        let bookAuthor = event.target.parentElement.previousElementSibling
-        let bookISBN = bookAuthor.previousElementSibling
-        let bookName = bookISBN.previousElementSibling
+        let bookISBN = event.target.parentElement.previousElementSibling
+        let bookAuthor = bookISBN.previousElementSibling
+        let bookName = bookAuthor.previousElementSibling
 
         const book = new Book(bookName.textContent, bookISBN.textContent, bookAuthor.textContent)
         ls.removeBook(book)
