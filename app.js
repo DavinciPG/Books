@@ -50,12 +50,13 @@ function removeBook(event) {
         let bookAuthor = bookISBN.previousElementSibling
         let bookName = bookAuthor.previousElementSibling
 
-        removeBookStorage(bookName.textContent, bookAuthor.textContent, bookISBN.textContent)
+        const book = new Book(bookName.textContent, bookISBN.textContent, bookAuthor.textContent)
+        removeBookStorage(book)
         event.target.parentElement.parentElement.remove()
     }
 }
 
-function removeBookStorage(bookName, bookAuthor, bookISBN) {
+function removeBookStorage(ibook) {
     let books
     if(localStorage.getItem('books') === null) {
         books = []
@@ -63,8 +64,7 @@ function removeBookStorage(bookName, bookAuthor, bookISBN) {
         books = JSON.parse(localStorage.getItem('books'))
     }
     books.forEach((book, bookIndex) => {
-        if(book[0] == bookName && book[1] == bookAuthor && book[2] == bookISBN) {
-            console.log('found book')
+        if(book.name == ibook.name && book.isbn == ibook.isbn && book.author == ibook.author) {
             books.splice(bookIndex, 1)
         }
     })
