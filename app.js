@@ -20,26 +20,27 @@ class Book {
 }
 
 function addBook(event) {
+    const book = new Book(title.value, isbn.value, author.value)
     const Row = `<tr>
-                   <td id="tiitel">${title.value}</td>
-                   <td id="autor">${author.value}</td>
-                   <td id="isbnkood">${isbn.value}</td>
+                   <td id="tiitel">${book.name}</td>
+                   <td id="autor">${book.author}</td>
+                   <td id="isbnkood">${book.isbn}</td>
                    <td><a href="#">X</a></td>
                 </tr>`
 
     body.insertAdjacentHTML('beforeend', Row)
-    addBookStorage(title.value, author.value, isbn.value)
+    addBookStorage(book)
     event.preventDefault();
 }
 
-function addBookStorage(bookName, bookAuthor, bookISBN) {
+function addBookStorage(book) {
     let books
     if(localStorage.getItem('books') === null) {
         books = []
     } else {
         books = JSON.parse(localStorage.getItem('books'))
     }
-    books.push([bookName, bookAuthor, bookISBN])
+    books.push(book)
     localStorage.setItem('books', JSON.stringify(books))
 }
 
