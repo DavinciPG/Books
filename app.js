@@ -46,9 +46,9 @@ function addBookStorage(book) {
 
 function removeBook(event) {
     if(event.target.textContent == 'X') {
-        let bookISBN = event.target.parentElement.previousElementSibling
-        let bookAuthor = bookISBN.previousElementSibling
-        let bookName = bookAuthor.previousElementSibling
+        let bookAuthor = event.target.parentElement.previousElementSibling
+        let bookISBN = bookAuthor.previousElementSibling
+        let bookName = bookISBN.previousElementSibling
 
         const book = new Book(bookName.textContent, bookISBN.textContent, bookAuthor.textContent)
         removeBookStorage(book)
@@ -82,9 +82,9 @@ function getBookFromLocalStorage() {
 
     books.forEach((book) => {
         const Row = `<tr>
-                   <td>${book[0]}</td>
-                   <td>${book[1]}</td>
-                   <td>${book[2]}</td>
+                   <td>${book.name}</td>
+                   <td>${book.isbn}</td>
+                   <td>${book.author}</td>
                    <td><a href="#">X</a></td>
                 </tr>`
 
