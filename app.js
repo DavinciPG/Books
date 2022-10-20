@@ -9,6 +9,7 @@ const body = table.querySelector('tbody')
 
 form.addEventListener('submit', addBook)
 body.addEventListener('click', removeBook)
+document.addEventListener('DOMContentLoaded', getBookFromLocalStorage)
 
 function addBook(event) {
     const Row = `<tr>
@@ -60,4 +61,24 @@ function removeBookStorage(bookName, bookAuthor, bookISBN) {
     })
 
     localStorage.setItem('books', JSON.stringify(books))
+}
+
+function getBookFromLocalStorage() {
+        let books
+    if(localStorage.getItem('books') === null) {
+        books = []
+    } else {
+        books = JSON.parse(localStorage.getItem('books'))
+    }
+
+    books.forEach((book) => {
+        const Row = `<tr>
+                   <td>${book[0]}</td>
+                   <td>${book[1]}</td>
+                   <td>${book[2]}</td>
+                   <td><a href="#">X</a></td>
+                </tr>`
+
+        body.insertAdjacentHTML('beforeend', Row)
+    })
 }
